@@ -53,7 +53,7 @@ func main() {
 		i, _ := strconv.Atoi(grps[1])
 		j, _ := strconv.Atoi(grps[2])
 		if isValidPasswordPt2(i, j, grps[3], grps[4]) {
-			validCnt += 1
+			validCnt ++ 1
 		}
 	}
 
