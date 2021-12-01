@@ -1,0 +1,9 @@
+[style]
+based_on_style = google
+indent_width = 4
+column_limit = 80
+SPLIT_BEFORE_EXPRESSION_AFTER_OPENING_PAREN = true
+SPLIT_BEFORE_CLOSING_BRACKET = true
+SPLIT_BEFORE_DICT_SET_GENERATOR = true
+SPLIT_COMPLEX_COMPREHENSION = true
+split_before_logical_operator = false

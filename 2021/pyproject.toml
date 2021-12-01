@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "days"
+version = "0.1.0"
+description = ""
+authors = ["Jochen Van de Voorde"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+flake8 = "^4.0.1"
+yapf = "^0.31.0"
+pylint = "^2.12.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
