@@ -1,5 +1,5 @@
 from days.day_6 import initial_state
-from days.day_7 import align, FUEL_BURN_RATE_CONSTANT, FUEL_BURN_RATE_INCREASING, fuel_burn
+from days.day_7 import align, FUEL_BURN_RATE_CONSTANT, FUEL_BURN_RATE_INCREASING, align_perf, fuel_burn
 
 content = ['16,1,2,0,4,2,7,1,2,14']
 positions = initial_state(content)
@@ -33,3 +33,13 @@ def test_align_by_constant_rate():
 
 def test_align_by_increasing_rate():
     assert align(positions, FUEL_BURN_RATE_INCREASING) == 168
+
+
+def test_align_perf_by_constant_rate():
+
+    assert align_perf(positions, FUEL_BURN_RATE_CONSTANT) == 37
+
+
+def test_align_by_increasing_rate():
+
+    assert align_perf(positions, FUEL_BURN_RATE_INCREASING) == 168
