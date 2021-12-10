@@ -5,13 +5,16 @@ description = ""
 authors = ["Jochen Van de Voorde"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.7,<3.11"
+numpy = "^1.21.4"
+scipy = "^1.7.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
 flake8 = "^4.0.1"
 yapf = "^0.31.0"
 pylint = "^2.12.1"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
