@@ -26,7 +26,8 @@ def test_content_to_graph():
 
 def test_nr_of_paths():
 
-    assert nr_of_paths(sample_graph) == 10
+    assert nr_of_paths(sample_graph, False) == 10
+    assert nr_of_paths(sample_graph, True) == 36
 
 
 def test_node_edge():
