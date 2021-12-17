@@ -4,6 +4,9 @@ from days.inputreader import day, day_input
 
 
 def add_node_edge(graph, _from: str, _to: str) -> Dict[str, str]:
+    if _from == 'end' or _to == 'start':
+        return graph
+
     if _from in graph:
         graph[_from].append(_to)
     else:
@@ -16,8 +19,7 @@ def content_to_graph(content: List[str]) -> Dict[str, str]:
     for line in content:
         _from, _to = line.strip().split('-')
         graph = add_node_edge(graph, _from, _to)
-        if _from != 'start' and _to != 'end':
-            graph = add_node_edge(graph, _to, _from)
+        graph = add_node_edge(graph, _to, _from)
 
     return graph
 
@@ -46,6 +48,7 @@ if __name__ == '__main__':
     content = day_input(f'{day(__file__)}_input.txt')
 
     graph = content_to_graph(content)
+    print(graph)
     part1 = nr_of_paths(graph)
 
     print(part1)
