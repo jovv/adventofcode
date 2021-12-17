@@ -32,13 +32,7 @@ def depth_first_search(data, path, paths=[]):
             new_path = path + [val]
             paths = depth_first_search(data, new_path, paths)
     else:
-        if node != 'end':
-            # no backtracking to start or a small cave
-            if path[-2] != 'start' and not path[-2].islower():
-                new_path = path + [path[-2]]  # backtrack
-                paths = depth_first_search(data, new_path, paths)
-        else:
-            paths += [path]  # stop
+        paths += [path]  # stop
 
     return paths
 
