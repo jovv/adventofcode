@@ -1,3 +1,5 @@
+package aoc
+
 import scala.util.{Try, Using}
 
 object InputReader {

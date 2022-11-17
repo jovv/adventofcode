@@ -1,7 +1,8 @@
-import org.scalatest._
-import Day1._
-import flatspec._
-import matchers._
+package aoc
+
+import org.scalatest.*
+import org.scalatest.flatspec.*
+import org.scalatest.matchers.*
 
 class Day1Test extends AnyFlatSpec with should.Matchers {
   val testcases: Seq[(Int, Int)] = Seq(
