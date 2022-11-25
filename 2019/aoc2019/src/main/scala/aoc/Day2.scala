@@ -2,19 +2,13 @@ package aoc
 
 import scala.annotation.tailrec
 
-object Day2 {
+object Day2 extends Day {
+    
+  override def part1(s: String): String =
+    intCode(setInitialState(inputToInts(s), 12, 2), 0).toString
 
-  def solution(s: String): List[String] =
-    List(
-      part1(s).toString,
-      part2(s).toString
-    )
-
-  def part1(s: String): Int =
-    intCode(setInitialState(inputToInts(s), 12, 2), 0)
-
-  def part2(s: String): Int =
-    generateOutputs(inputToInts(s)).filter(_ != 0).head
+  override def part2(s: String): String =
+    generateOutputs(inputToInts(s)).filter(_ != 0).head.toString
 
   def inputToInts(s: String): Vector[Int] =
     s.trim.split(",").map(_.toInt).toVector

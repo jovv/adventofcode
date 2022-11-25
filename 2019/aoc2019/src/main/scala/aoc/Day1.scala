@@ -2,15 +2,16 @@ package aoc
 
 import scala.annotation.tailrec
 
-object Day1 {
-  def solution(s: String): List[String] =
-    List(
-      totalFuelRequirement(s, calculateTotalFuel),
-      totalFuelRequirement(s, calculateTotalFuelPt2)
-    )
+object Day1 extends Day {
+  
+  override def part1(s: String): String =
+    totalFuelRequirement(s, calculateTotalFuel).toString
 
-  def totalFuelRequirement(s: String, f: Seq[Int] => Int): String =
-    f(s.split("\n").map(_.toInt)).toString
+  override def part2(s: String): String =
+    totalFuelRequirement(s, calculateTotalFuelPt2).toString
+
+  def totalFuelRequirement(s: String, f: Seq[Int] => Int): Int =
+    f(s.split("\n").map(_.toInt))
 
   def calculateTotalFuel(xs: Seq[Int]): Int =
     xs.map(x => fuelRequirementForMass(x)).sum
