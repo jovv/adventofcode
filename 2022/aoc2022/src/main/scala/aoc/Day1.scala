@@ -12,5 +12,11 @@ object Day1 extends Day {
     cargoPerElf(s)(_.sorted.reverse.take(3).sum).toString
 
   def cargoPerElf(s: String)(f: List[Int] => Int): Int =
-    f(s.split("\n\n").toList.map(ss => ss.split("\n").toList.map(s => s.toInt)).map(_.sum))
+    f(
+      s.split("\n\n").toList
+        .map(ss => ss.split("\n").toList
+          .map(s => s.toInt)
+        )
+        .map(_.sum)
+    )
 }
