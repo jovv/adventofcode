@@ -1,7 +1,5 @@
 package aoc
 
-import scala.annotation.tailrec
-
 object Day1 extends Day {
 
   override def part1(s: String): String =
