@@ -1,5 +1,4 @@
 use std::fmt;
-// use crate::day::Day;
 
 pub struct Day {
     part1: String,
