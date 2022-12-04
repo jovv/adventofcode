@@ -1,23 +1,8 @@
-use std::fmt;
+use crate::day;
 
-pub struct Day {
-    part1: String,
-    part2: String,
-}
+pub struct Day1 {}
 
-impl fmt::Display for Day {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}\n{}", self.part1, self.part2)
-    }
-}
-
-pub trait Solution {
-    fn new(s: String) -> Self;
-    fn part1(s: String) -> String;
-    fn part2(s: String) -> String;
-}
-
-impl Day {
+impl Day1 {
     fn cargo_per_elf(s: String) -> Vec<u32> {
         s.clone()
             .split("\n\n")
@@ -27,14 +12,7 @@ impl Day {
     }
 }
 
-impl Solution for Day {
-    fn new(s: String) -> Day {
-        Day {
-            part1: Self::part1(s.clone()),
-            part2: Self::part2(s),
-        }
-    }
-
+impl day::Solution for Day1 {
     fn part1(s: String) -> String {
         format!("{}", Self::cargo_per_elf(s).iter().max().unwrap())
     }
