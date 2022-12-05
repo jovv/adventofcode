@@ -7,10 +7,10 @@ object Day5 extends Day {
 
 
   override def part1(s: String): String =
-    moveCrates9000(moves(s), crates).map(_.head).mkString
+    moveCrates9000(moves(s), crates(s)).map(_.head).mkString
 
   override def part2(s: String): String =
-    moveCrates9001(moves(s), crates).map(_.head).mkString
+    moveCrates9001(moves(s), crates(s)).map(_.head).mkString
 
   case class Move(
                    nr: Int,
@@ -18,17 +18,19 @@ object Day5 extends Day {
                    to: Int
                  )
 
-  val crates = List(
-    List('Z', 'P', 'M', 'H', 'R'),
-    List('P', 'C', 'J', 'B'),
-    List('S', 'N', 'H', 'G', 'L', 'C', 'D'),
-    List('F', 'T', 'M', 'D', 'Q', 'S', 'R', 'L'),
-    List('F', 'S', 'P', 'Q', 'B', 'T', 'Z', 'M'),
-    List('T', 'F', 'S', 'Z', 'B', 'G'),
-    List('N', 'R', 'V'),
-    List('P', 'G', 'L', 'T', 'D', 'V', 'C', 'M'),
-    List('W', 'Q', 'N', 'J', 'F', 'M', 'L')
-  ).map(_.reverse)
+  def cratesInputStrList(s: String): List[String] =
+    s.split("\n\n").head.split("\n").toList
+
+  def crates(s: String): List[List[Char]] =
+    val padTo = cratesInputStrList(s).map(_.length).max
+    cratesInputStrList(s)
+      .map(_.padTo(padTo, ' '))
+      .transpose
+      .map(_.reverse)
+      .filter(_.head != ' ')
+      .map(_.tail)
+      .map(_.filter(_ != ' '))
+      .map(_.reverse)
 
   val moves_re = "move (\\d+) from (\\d+) to (\\d+)".r
 
