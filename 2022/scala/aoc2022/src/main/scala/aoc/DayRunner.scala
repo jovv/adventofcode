@@ -6,7 +6,7 @@ object DayRunner {
 
   @main
   def run: Unit =
-    val day = 8
+    val day = 9
     val fileName = s"day$day.txt"
     println(s"Running solution for day $day")
     InputReader.readFile(fileName) match
@@ -23,5 +23,6 @@ object DayRunner {
         case 6 => Day6.solution(s)
         case 7 => Day7.solution(s)
         case 8 => Day8.solution(s)
+        case 9 => Day9.solution(s)
 
 }
