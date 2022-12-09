@@ -10,7 +10,12 @@ object Day9 extends Day {
       List[Rope]()
     ).map(_.tail).distinct.size.toString
 
-  override def part2(s: String): String = ""
+  override def part2(s: String): String =
+    moveRopeSections(
+      Array.fill(9)(Rope(RopeEnd(0, 0), RopeEnd(0, 0))),
+      parseAndFlattenInstructions(s.split("\n").toList),
+      List[Rope]()
+    ).map(_.tail).distinct.size.toString
 
   case class RopeEnd(
                       x: Int,
@@ -80,6 +85,15 @@ object Day9 extends Day {
     val newTail = moveTail(Rope(newHead, rope.tail))
     Rope(newHead, newTail)
 
+  def moveSections(ropeSections: Array[Rope], direction: String): Array[Rope] =
+    val newHead = moveHead(ropeSections(0).head, direction)
+    val newTail = moveTail(Rope(newHead, ropeSections(0).tail))
+    ropeSections(0) = Rope(newHead, newTail)
+    // please close your eyes...
+    for (n <- 1 to 8)
+      ropeSections(n) = Rope(ropeSections(n-1).tail, moveTail(Rope(ropeSections(n-1).tail, ropeSections(n).tail)))
+    ropeSections
+
   @tailrec
   def moveRope(rope: Rope, directions: List[String], acc: List[Rope]): List[Rope] =
     directions match
@@ -88,4 +102,11 @@ object Day9 extends Day {
         val newRope = move(rope, directions.head)
         moveRope(newRope, directions.tail, newRope :: acc)
 
+  @tailrec
+  def moveRopeSections(ropeSections: Array[Rope], directions: List[String], acc: List[Rope]): List[Rope] =
+    directions match
+      case Nil => acc
+      case _ =>
+        val newRopeSections = moveSections(ropeSections, directions.head)
+        moveRopeSections(newRopeSections, directions.tail, newRopeSections(8) :: acc)
 }
