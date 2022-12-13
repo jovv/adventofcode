@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "aoc"
+version = "0.1.0"
+description = ""
+authors = ["Jochen Van de Voorde <jochen.van.de.voorde@persgroep.net>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.12.0"
+flake8 = "^6.0.0"
+pylint = "^2.15.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
