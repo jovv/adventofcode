@@ -5,7 +5,7 @@ description = ""
 authors = ["Jochen Van de Voorde <jochen.van.de.voorde@persgroep.net>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -16,3 +16,10 @@ pylint = "^2.15.8"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.pylint]
+max-line-length = 120
+good-names="x,y,n,a,b,i,j,f"
