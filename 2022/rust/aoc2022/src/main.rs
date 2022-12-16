@@ -1,12 +1,12 @@
 use std::fs;
 mod day;
 mod day1;
-mod day2;
+mod day12;
 
 use day::Solution;
 
 fn main() {
-    let day: u8 = 2;
+    let day: u8 = 12;
     let puzzle_input_filename = format!("./resources/day{day}.txt");
 
     match fs::read_to_string(&puzzle_input_filename) {
@@ -18,7 +18,7 @@ fn main() {
 fn solution(day: u8, s: String) -> day::Day {
     match day {
         1 => day1::Day1::new(s),
-        2 => day2::Day2::new(s),
+        12 => day12::Day12::new(s),
         _ => panic!("No solution branch for day {day}"),
     }
 }
