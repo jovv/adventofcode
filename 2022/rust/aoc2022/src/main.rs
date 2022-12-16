@@ -6,7 +6,7 @@ mod day12;
 use day::Solution;
 
 fn main() {
-    let day: u8 = 12;
+    let day: u8 = 1;
     let puzzle_input_filename = format!("./resources/day{day}.txt");
 
     match fs::read_to_string(&puzzle_input_filename) {

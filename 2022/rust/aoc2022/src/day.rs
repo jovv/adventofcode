@@ -14,10 +14,10 @@ impl fmt::Display for Day {
 pub trait Solution {
     fn new(s: String) -> Day {
         Day {
-            part1: Self::part1(s.clone()),
-            part2: Self::part2(s),
+            part1: Self::part1(&s),
+            part2: Self::part2(&s),
         }
     }
-    fn part1(s: String) -> String;
-    fn part2(s: String) -> String;
+    fn part1(s: &String) -> String;
+    fn part2(s: &String) -> String;
 }

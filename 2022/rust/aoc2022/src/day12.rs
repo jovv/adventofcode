@@ -87,7 +87,7 @@ impl Day12 {
 }
 
 impl day::Solution for Day12 {
-    fn part1(s: String) -> String {
+    fn part1(s: &String) -> String {
         let grid = s
             .split_whitespace()
             .map(|s| s.chars().collect::<Vec<char>>())
@@ -97,7 +97,7 @@ impl day::Solution for Day12 {
         format!("{:?}", Self::shortest_path(&grid, start, 'S'))
     }
 
-    fn part2(s: String) -> String {
+    fn part2(s: &String) -> String {
         let grid = s
             .split_whitespace()
             .map(|s| s.chars().collect::<Vec<char>>())
