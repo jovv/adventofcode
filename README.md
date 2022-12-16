@@ -7,4 +7,4 @@ Provided as is, no claims for speed, aesthetics or efficiency.
 * 2019: Scala3
 * 2020: Go(lang)
 * 2021: Python
-* 2022: Scala3, Rust
+* 2022: Scala3, Rust, Python
