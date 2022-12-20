@@ -1,4 +1,5 @@
 use crate::day;
+use enum_iterator::Sequence;
 use int_enum::IntEnum;
 use itertools::Itertools;
 use std::str::FromStr;
@@ -6,7 +7,7 @@ use std::str::FromStr;
 pub struct Day2 {}
 
 #[repr(u8)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq, IntEnum)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, IntEnum, Sequence)]
 enum Shape {
     Rock = 1,
     Paper = 2,
@@ -30,15 +31,8 @@ impl Shape {
     fn new(shape: Shape, outcome: Outcome) -> Self {
         match outcome {
             Outcome::Draw => shape,
-            Outcome::Win => match shape.int_value() + 1 {
-                4 => Shape::Rock,
-                v => Shape::from_int(v).unwrap(),
-            },
-
-            Outcome::Loss => match shape.int_value() - 1 {
-                0 => Shape::Scissors,
-                v => Shape::from_int(v).unwrap(),
-            },
+            Outcome::Win => enum_iterator::next_cycle(&shape).unwrap(),
+            Outcome::Loss => enum_iterator::previous_cycle(&shape).unwrap(),
         }
     }
 }
