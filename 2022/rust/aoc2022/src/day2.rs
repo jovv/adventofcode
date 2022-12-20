@@ -78,10 +78,12 @@ enum Outcome {
 
 impl Outcome {
     fn new(player: Shape, opponent: Shape) -> Self {
-        match player.int_value() as i8 - opponent.int_value() as i8 {
-            0 => Outcome::Draw,
-            1 | -2 => Outcome::Win,
-            _ => Outcome::Loss,
+        if opponent == player {
+            Outcome::Draw
+        } else if opponent == enum_iterator::next_cycle(&player).unwrap() {
+            Outcome::Loss
+        } else {
+            Outcome::Win
         }
     }
 }
