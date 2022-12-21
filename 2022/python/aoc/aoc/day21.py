@@ -29,17 +29,6 @@ def parse_yell(s: str) -> Union[int, MonkeyOp]:
     return MonkeyOp(a, op, b)
 
 
-# I'd rather pass on using eval
-def do_op(op: str, a: int, b: int) -> int:
-    if op == "+":
-        return a + b
-    if op == "-":
-        return a - b
-    if op == "*":
-        return a * b
-    return a // b
-
-
 monkeys = {}
 
 for line in content:
