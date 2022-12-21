@@ -1,5 +1,13 @@
+import operator
 from dataclasses import dataclass
 from typing import Dict, Union
+
+OPS = {
+    "+": operator.add,
+    "-": operator.sub,
+    "*": operator.mul,
+    "/": operator.floordiv,
+}
 
 FILENAME = "./resources/day21.txt"
 with open(FILENAME) as f:
@@ -43,7 +51,7 @@ def get_value(name: str, troop: Dict[str, Union[int, MonkeyOp]]) -> int:
     yell = troop[name]
     if type(yell) == int:
         return yell
-    return do_op(yell.op, get_value(yell.a, troop), get_value(yell.b, troop))
+    return OPS[yell.op](get_value(yell.a, troop), get_value(yell.b, troop))
 
 
 part1 = get_value("root", monkeys)
