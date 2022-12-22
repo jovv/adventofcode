@@ -1,6 +1,5 @@
 use crate::day;
-use itertools::Itertools;
-use std::collections::{BTreeSet, HashSet};
+use std::collections::BTreeSet;
 
 const LOWERCASE_MODIFIER: u16 = 'a' as u16 - 1;
 const UPPERCASE_MODIFIER: u16 = 'A' as u16 - 27;
