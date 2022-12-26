@@ -5,14 +5,14 @@ mod day12;
 mod day15;
 mod day2;
 mod day23;
+mod day25;
 mod day3;
 mod day4;
 mod day5;
-
 use day::Solution;
 
 fn main() {
-    let day: u8 = 23;
+    let day: u8 = 25;
     let puzzle_input_filename = format!("./resources/day{day}.txt");
 
     match fs::read_to_string(&puzzle_input_filename) {
@@ -31,6 +31,7 @@ fn solution(day: u8, s: String) -> day::Day {
         12 => day12::Day12::new(s),
         15 => day15::Day15::new(s),
         23 => day23::Day23::new(s),
+        25 => day25::Day25::new(s),
         _ => panic!("No solution branch for day {day}"),
     }
 }
