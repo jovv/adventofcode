@@ -23,33 +23,28 @@ fn divmod(x: &i64) -> (i64, i64) {
     (x / 5, x % 5)
 }
 
-fn to_snafu(x: &i64) -> String {
-    let mut dec = *x;
-    let mut snafu = String::from("");
-    loop {
-        if dec == 0 {
-            break;
-        }
-        let (div, rem) = divmod(&dec);
-        dec = div;
-        if rem <= 2 {
-            snafu = format!("{rem}{snafu}");
-        } else {
-            snafu = format!(
-                "{}{snafu}",
-                String::from("   =-").chars().collect::<Vec<char>>()[rem as usize]
-            );
-            dec += 1;
+fn to_snafu_tail(dec: &i64, snafu: String) -> String {
+    match dec {
+        0 => snafu,
+        _ => {
+            let (div, rem) = divmod(&dec);
+            let next_dec = if rem > 2 { div + 1 } else { div };
+            to_snafu_tail(
+                &next_dec,
+                format!(
+                    "{}{snafu}",
+                    String::from("012=-").chars().collect::<Vec<char>>()[rem as usize]
+                ),
+            )
         }
     }
-    snafu
 }
 
 impl day::Solution for Day25 {
     fn part1(s: &String) -> String {
         let dec_sum = s.split_whitespace().map(|x| to_decimal(x)).sum::<i64>();
 
-        format!("{}", to_snafu(&dec_sum))
+        format!("{}", to_snafu_tail(&dec_sum, String::from("")))
     }
 
     fn part2(s: &String) -> String {
