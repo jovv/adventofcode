@@ -8,10 +8,11 @@ use aoc2022::day25::Day25;
 use aoc2022::day3::Day3;
 use aoc2022::day4::Day4;
 use aoc2022::day5::Day5;
+use aoc2022::day6::Day6;
 use std::fs;
 
 fn main() {
-    let day: u8 = 5;
+    let day: u8 = 6;
     let puzzle_input_filename = format!("./resources/day{day}.txt");
 
     match fs::read_to_string(&puzzle_input_filename) {
@@ -27,6 +28,7 @@ fn solution(day: u8, s: String) -> Day {
         3 => Day3::new(s),
         4 => Day4::new(s),
         5 => Day5::new(s),
+        6 => Day6::new(s),
         12 => Day12::new(s),
         15 => Day15::new(s),
         23 => Day23::new(s),
