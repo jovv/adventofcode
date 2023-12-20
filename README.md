@@ -8,3 +8,4 @@ Provided as is, no claims for speed, aesthetics or efficiency.
 * 2020: Go(lang)
 * 2021: Python
 * 2022: Scala3, Rust, Python
+* 2023: Rust
